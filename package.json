@@ -1,6 +1,6 @@
 {
   "name": "weather-app",
-  "homepage":"https://alexhorhat.github.io/alexhorhat-weather-app",
+  "homepage":"http://weather-app.alexhorhat.com",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
