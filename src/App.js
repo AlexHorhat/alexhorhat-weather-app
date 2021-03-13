@@ -47,7 +47,7 @@ function App() {
           value={query}
           onKeyPress={search}
           type="text"
-          placeholder="Search for a city..."
+          placeholder="Search for a location..."
         />
         {error}
       </header>
