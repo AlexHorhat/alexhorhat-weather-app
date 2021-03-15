@@ -1,5 +1,5 @@
 import React from 'react'
-import Weather from './Weather'
+import Card from './Card'
 
 const Main = ({instances, onDelete}) => {
     const dateBuilder = (d) => {
@@ -17,7 +17,7 @@ const Main = ({instances, onDelete}) => {
     return (
         <main className="main-container">
             {instances.map((instance) => (
-                <Weather 
+                <Card 
                 key={instance.id} 
                 city={`${instance.name}, ${instance.sys.country}`} 
                 temp={Math.round(instance.main.temp)} 

@@ -1,7 +1,7 @@
 import React from 'react'
 import { RiDeleteBinLine } from 'react-icons/ri';
 
-const Weather = ({city, temp, weather, date, low, high, onDelete, instance}) => {
+const Card = ({city, temp, weather, date, low, high, onDelete, instance}) => {
     return (
         <div className="weather-instance">
             <span className="city">{city}</span>
@@ -18,4 +18,4 @@ const Weather = ({city, temp, weather, date, low, high, onDelete, instance}) => 
     )
 }
 
-export default Weather
+export default Card
