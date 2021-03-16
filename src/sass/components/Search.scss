@@ -1,0 +1,39 @@
+@import '../variables.scss';
+
+.header-container{
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 10%;
+
+  input{
+    height: 30px;
+    width: 250px;
+    text-align: center;
+    border-bottom:solid 3px rgb(37, 37, 37);
+    border-radius: 15px 0 15px 0;
+    font-size: 15px;
+    background-color: rgba(255, 255, 255, 0.3);
+    outline: none;
+
+    &:focus{
+      background-color: rgba(255, 255, 255, 0.7);
+    }
+  }
+}
+
+.error {
+  position: absolute;
+  top: 150%;
+  width: fit-content;
+  font-size: 14px;
+  font-weight: bold;
+  background-color: rgba(199, 19, 19, 0.5);
+  border: solid 2px rgb(255, 81, 0);
+  border-radius: 10px;
+  box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.7);
+  padding: 5px 10px;
+  color: $text-main;
+  text-shadow: 2px 1px rgba(0, 0, 0, 0.6);
+}

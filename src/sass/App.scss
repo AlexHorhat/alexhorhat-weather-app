@@ -1,113 +1,13 @@
+@import './components/Search.scss', './variables.scss', './components/Main.scss', './components/Weather.scss';
 
 .App {
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-family: $main-font;
   display: flex;
   flex-direction: column;
   text-align: center;
   height: 100vh;
-  background-color: rgb(245, 234, 220);
-  background-image: url('../images/background.jpg');
+  background-color: $background-main;
+  background-image: url('./images/background.jpg');
   background-size: cover;
 }
 
-.header-container{
-  display: flex;
-  justify-content: center;
-  margin-top: 50px;
-  position: relative;
-
-  input{
-    height: 30px;
-    width: 250px;
-    text-align: center;
-    border-bottom:solid 3px rgb(37, 37, 37);
-    border-radius: 15px 0 15px 0;
-    font-size: 15px;
-    background-color: rgba(255, 255, 255, 0.3);
-    outline: none;
-
-    &:focus{
-      background-color: rgba(255, 255, 255, 0.7);
-    }
-  }
-}
-
-.main-container{
-  height: 100vh;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-}
-
-.weather-instance {
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  position: relative;
-  color: white;
-  background-image: url('../images/city1.jpg');
-  background-size: cover;
-  background-position: center;
-  height: 60%;
-  padding:0 20px;
-  box-shadow: 10px 5px 5px rgba(0, 0, 0, 0.7);
-  border-radius: 15px;
-}
-
-.city, .temp, .weather, .low-high {
-  text-shadow: 2px 5px rgba(0, 0, 0, 0.6);
-}
-
-.city{
-  font-size: 32px;
-  font-weight: 500;
-  margin: 30px 0;
-}
-
-.temp{
-  font-size: 70px;
-  margin: 30px 0;
-  font-weight: 800;
-}
-
-.weather, .low-high, .date{
-  font-size: 20px;
-  margin: 10px 0;
-}
-
-.date{
-  text-shadow: 2px 3px rgba(0, 0, 0, 0.6);
-}
-
-.delete{
-  position: absolute;
-  top: 15px;
-  right: 15px;
-  background: transparent;
-  border: none;
-  cursor: pointer;
-  
-  .delete-icon {
-    font-size: 25px;
-    color:rgba(255,255,255,0.4);
-
-    &:hover{
-      color: rgba(255,255,255,1);
-    }
-  }
-}
-
-.error {
-  position: absolute;
-  top: 150%;
-  width: fit-content;
-  font-size: 14px;
-  font-weight: bold;
-  background-color: rgba(199, 19, 19, 0.5);
-  border: solid 2px rgb(255, 81, 0);
-  border-radius: 10px;
-  box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.7);
-  padding: 5px 10px;
-  color: white;
-  text-shadow: 2px 1px rgba(0, 0, 0, 0.6);
-}
