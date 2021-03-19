@@ -1,8 +1,11 @@
 import React from "react";
 import Card from "./Card";
 import Carousel from "react-elastic-carousel";
+import { useState } from 'react';
 
 const Main = ({ instances, onDelete }) => {
+    const [state, setState] = useState('');
+
   const dateBuilder = (d) => {
     let months = [
       "January",
@@ -43,9 +46,13 @@ const Main = ({ instances, onDelete }) => {
       {width: 1200, itemsToShow: 5 },
   ]
 
+  const reRender = () => {
+    setState('');
+  }
+
   return (
     <main className="main-container">
-      <Carousel breakPoints={breakPoints}>
+      <Carousel onChange={reRender} breakPoints={breakPoints}>
         {instances.map((instance) => (
           <Card
             key={instance.id}
@@ -59,6 +66,7 @@ const Main = ({ instances, onDelete }) => {
             instance={instance}
           />
         ))}
+        <div>{state}</div>
       </Carousel>
     </main>
   );
