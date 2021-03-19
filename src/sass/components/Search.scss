@@ -26,6 +26,7 @@
 .error {
   position: absolute;
   top: 150%;
+  z-index: 1;
   width: fit-content;
   font-size: 14px;
   font-weight: bold;
