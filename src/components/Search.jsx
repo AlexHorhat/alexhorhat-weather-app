@@ -5,6 +5,18 @@ const Search = ({api, getInstance, instances}) => {
     const [query, setQuery] = useState('');
     const [error, setError] = useState('');
   
+    class Location {
+      constructor(response){
+        this.id = response.id;
+        this.location = `${response.name}, ${response.sys.country} `;
+        this.temp = Math.round(response.main.temp);
+        this.weather = response.weather[0].main;
+        this.min = Math.round(response.main.temp_min);
+        this.max = Math.round(response.main.temp_max);
+  
+      }
+    }
+
     const search = async (e) => {
       if (instances.length >= 5) {
         errorTooManyLocations();
@@ -15,7 +27,8 @@ const Search = ({api, getInstance, instances}) => {
       if (data === undefined){
         return;
       }
-      getInstance(data);
+      let location = new Location(data);
+      getInstance(location);
     }
     
     const fetchData = async () => {

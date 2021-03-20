@@ -12,11 +12,11 @@ function App() {
 
   const [instances, setInstance] = useState([]);
 
-  const getInstance = (e) => {
-    console.log(e);
+  const getInstance = (response) => {
+    console.log(response);
     setInstance((previousInstances) =>
     {
-      return [...previousInstances, e]
+      return [...previousInstances, response]
     });
   }
 
@@ -31,7 +31,7 @@ function App() {
         getInstance={getInstance}
         instances={instances}
         />
-      {(typeof instances != "undefined") && (
+      {(instances !== undefined) && (
         <Main
           instances={instances}
           onDelete={deleteInstance}
