@@ -1,0 +1,25 @@
+//Breakpoints
+$breakpoint-mobile: 480px;
+$breakpoint-tablet:768px;
+$breakpoint-desktop:1025px;
+$breakpoint-large:1201px;
+
+// Fonts
+$main-font: Verdana, Geneva, Tahoma, sans-serif;
+
+//Colors
+
+$primary-light: #8E1500;
+$secondary-light: #FFE7D5;
+$dark-hover:#FFF7D6;
+$primary-dark: #002e3e;
+$secondary-dark: gold;
+$dark-blue: #012a4a;
+$text-main: white;
+$dark-red:#8E1500;
+$light-hover: #E5DBCE;
+
+// Background-Gradients
+
+$dark-background: linear-gradient( 179.6deg,  rgba(0,19,26,1) -4.9%, rgba(0,77,105,1) 108.4% );
+$light-backgroind: radial-gradient( circle farthest-corner at 0.7% 2.7%,  rgba(237,220,140,1) 0%, rgba(241,121,121,1) 90% );

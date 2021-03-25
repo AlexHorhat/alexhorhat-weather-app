@@ -1,0 +1,59 @@
+@import "/src/components/variables/variables.scss";
+@import "/src/components/Main/Main.scss";
+@import "/src/components/Search/Search.scss";
+@import "/src/components/Card/Card.scss";
+@import "/src/components/DarkTheme/DarkTheme.scss";
+@import "/src/components/Carousel/Carousel.scss";
+
+body {
+  margin: 0;
+  position: relative;
+  font-family: $main-font;
+  background: $dark-background;
+  background-size: cover;
+
+  &.light{
+    background-image: $light-backgroind;
+
+    .weather-instance{
+      background-image: url('./images/city1.jpg');
+    }
+
+    .header-container{
+      input{
+        background-color: rgba(255, 255, 255, 0.3);
+        &:focus{
+          background-color: rgba(255, 255, 255, 0.7);
+        }
+      }
+
+    }
+  }
+
+  &.dark{
+    background-color: $dark-background;
+
+    .weather-instance{
+      background-image: url('./images/night2.jpg');
+    }
+
+    .header-container{
+      input{
+        background-color: rgba(255, 255, 255, 0.7);
+        &:focus{
+          background-color: rgba(255, 240, 173, 0.7);
+        }
+      }
+
+    }
+  }
+}
+
+
+.App {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  height: 100vh;
+}
+
