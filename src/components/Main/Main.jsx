@@ -1,3 +1,4 @@
+import "./Main.scss";
 import React from "react";
 import Card from "../Card/Card"
 import Carousel from "react-elastic-carousel";

@@ -1,6 +1,7 @@
-import React from 'react'
-import DarkMode from '../DarkTheme/DarkMode'
-import { useState } from 'react'
+import "./Search.scss";
+import React from 'react';
+import DarkMode from '../DarkTheme/DarkMode';
+import { useState } from 'react';
 import { BiSearch } from 'react-icons/bi';
 
 const Search = ({api, getInstance, instances}) => {

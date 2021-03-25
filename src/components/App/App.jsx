@@ -1,7 +1,8 @@
-import './App.scss'
-import Main from '../Main/Main.jsx'
-import Search from '../Search/Search.jsx'
-import { useState } from 'react'
+import './App.scss';
+import '../Carousel/Carousel.scss';
+import Main from '../Main/Main.jsx';
+import Search from '../Search/Search.jsx';
+import { useState } from 'react';
 
 
 function App() {

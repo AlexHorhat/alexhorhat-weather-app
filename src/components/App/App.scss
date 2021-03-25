@@ -1,9 +1,4 @@
-@import "/src/components/variables/variables.scss";
-@import "/src/components/Main/Main.scss";
-@import "/src/components/Search/Search.scss";
-@import "/src/components/Card/Card.scss";
-@import "/src/components/DarkTheme/DarkTheme.scss";
-@import "/src/components/Carousel/Carousel.scss";
+@import "../variables/variables.scss";
 
 body {
   margin: 0;
