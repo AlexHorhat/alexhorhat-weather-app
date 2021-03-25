@@ -13,7 +13,7 @@ body {
   background-size: cover;
 
   &.light{
-    background-image: $light-backgroind;
+    background-color: $light-background;
 
     .weather-instance{
       background-image: url('./images/city1.jpg');
