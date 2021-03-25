@@ -14,10 +14,12 @@
     outline: none;
 }
 
-#darkMode:hover {
-    filter: none;
-    background-color: $dark-blue;
-    cursor: pointer;
+#darkMode {
+    &:hover, &:focus{
+        filter: none;
+        background-color: $dark-blue;
+        cursor: pointer;
+    }
 }
 
 #darkMode.clicked {
