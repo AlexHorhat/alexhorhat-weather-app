@@ -1,8 +1,6 @@
 @import "/src/components/variables/variables.scss";
 
 .main-container{
-    min-height: 31em;
-    height: 100%;
     display: flex;
     justify-content: space-around;
     align-items: center;
@@ -10,12 +8,14 @@
 
   @media (min-width: 0px){
     .main-container{
+      min-height: 31em;
       margin: 2em 0 0 0;
     }
   }
 
   @media (min-width: $breakpoint-mobile){
     .main-container{
+      height: 100%;
       margin:auto 0px;
     }
   }
