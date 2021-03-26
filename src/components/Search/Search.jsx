@@ -43,7 +43,7 @@ const Search = ({api, getInstance, instances}) => {
         return;
       }
       let check = true;
-      instances.map((instance) => {
+      instances.forEach((instance) => {
         if (instance.id === data.id) {
           errorLocationAlreadyExists();
           check = false;

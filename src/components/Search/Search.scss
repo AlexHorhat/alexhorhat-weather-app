@@ -1,4 +1,5 @@
 @import "/src/components/variables/variables.scss";
+$size: 30px;
 
 .error {
   margin: auto;
@@ -96,14 +97,13 @@ body{
 
   .search-bar{
     margin-left: 10px;
-    --size: 30px;
     display: flex;
     align-items: center;
     width: 75%;
     border: 2px solid;
     border-radius: 40px;
-    height: var(--size);
-    width: var(--size);
+    height: $size;
+    width: $size;
     padding: 2px;
     position: relative;
     transition: width 300ms ease-in-out;
@@ -118,7 +118,7 @@ body{
     position: absolute;
     top:0;
     bottom: 0;
-    line-height: calc(var(--size)-2px);
+    line-height: 28px;
     cursor: pointer;
     opacity: 0;
     background: transparent;
@@ -137,8 +137,8 @@ body{
     border:0;
     background:transparent;
     border-radius: 50%;
-    width: var(--size);
-    height: var(--size);
+    width: $size;
+    height: $size;
     margin-left: auto;
     transition: background 150ms ease-in-out ;
   }
