@@ -82,11 +82,10 @@ body{
   }
 }
 
-@media (min-width: 1px){
+@media (min-width: 0px){
   
   .search-container{
     position: relative;
-    margin-bottom: 20px;
     display: flex;
     align-items: center;
     justify-content: space-between;
