@@ -11,9 +11,16 @@ function App() {
   };
 
   const localInstances = localStorage.getItem("instances");
-  console.log(localInstances)
-
-  const [instances, setInstance] = useState([]);
+  
+  const returnState = (localInstances) => {
+    if (JSON.parse(localInstances) === null){
+      return [];
+    }
+    return JSON.parse(localInstances);
+  }
+  
+  const [instances, setInstance] = useState(returnState(localInstances));
+  
 
   const getInstance = (response) => {
     setInstance((previousInstances) => {
