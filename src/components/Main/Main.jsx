@@ -15,7 +15,7 @@ const Main = ({ instances, onDelete }) => {
 
   return (
     <main className="main-container">
-      {instances.length >0 && <Carousel breakPoints={breakPoints}>
+      {instances !== null && instances.length > 0 && <Carousel breakPoints={breakPoints}>
         {instances.map((instance) => (
           <Card
             key={instance.id}
