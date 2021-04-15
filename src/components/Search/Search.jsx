@@ -1,26 +1,18 @@
 import "./Search.scss";
 import React from 'react';
 import DarkMode from '../DarkTheme/DarkMode';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { BiSearch } from 'react-icons/bi';
+import Location from '../CustomHooks/Location';
+import Update from '../CustomHooks/Update';
+// import fetchData from '../CustomHooks/fetchData';
 
-const Search = ({api, getInstance, instances}) => {
+
+const Search = ({api, getInstance, instances, setInstance}) => {
     const [query, setQuery] = useState('');
     const [error, setError] = useState('');
-  
-    class Location {
-      constructor(response){
-        this.id = response.id;
-        this.location = `${response.name}, ${response.sys.country} `;
-        this.temp = Math.round(response.main.temp);
-        this.weather = response.weather[0].main;
-        this.min = Math.round(response.main.temp_min);
-        this.max = Math.round(response.main.temp_max);
-        this.icon = response.weather[0].icon;
-      }
-    }
 
-    const search = async (e) => {
+    const search = async () => {
       if (instances.length >= 5) {
         errorTooManyLocations();
         return;
@@ -33,7 +25,7 @@ const Search = ({api, getInstance, instances}) => {
       let location = new Location(data);
       getInstance(location);
     }
-    
+
     const fetchData = async () => {
       const res = await fetch(`${api.base}weather?q=${query}&units=metric&appid=${api.key}`)
       const data = await res.json()
@@ -53,7 +45,57 @@ const Search = ({api, getInstance, instances}) => {
         return data;
       }
     }
+
+    const checkInstances = (instances) => {
+      instances.forEach( async (instance) => {
+        const now = Date();
+        const instanceAge = Math.round((Date.parse(now) - Date.parse(instance.time)) / (1000*60));
+        const tooOld = instanceAge >= 15;
+        
+        if(tooOld){
+          console.log(instance);
+          const update = await getInstanceUpdate(instance);
+          updateInstance(update, instances);
+          console.log(update);
+        }
+      })
+    };
     
+    const updateInstance = (update, instances) => {
+      instances.forEach( (instance) => {
+        if (update.id === instance.id) {
+          instance.location = update.location;
+          instance.temp = update.temp;
+          instance.weather = update.weather;
+          instance.max = update.max;
+          instance.min = update.min;
+          instance.icon = update.icon;
+          instance.time = new Date();
+        }
+      })
+      localStorage.setItem("instances", JSON.stringify(instances));
+    }
+
+    const getInstanceUpdate = async (instance) => {
+      const data = await fetchUpdate(instance);
+      const update = new Update(data);
+
+      return update;
+
+    };
+    
+    const fetchUpdate = async (instance) => {
+      const res = await fetch(`${api.base}weather?q=${instance.location}&units=metric&appid=${api.key}`);
+      const data = await res.json();
+
+      return data;
+    }
+
+    useEffect(() => {
+      setInterval(() => checkInstances(instances), 1000000);
+    },[])
+
+
     const errorLocationNotFound = () => {
       setQuery('');
       setError(
@@ -74,7 +116,6 @@ const Search = ({api, getInstance, instances}) => {
         <div className="error">Too many locations. Please delete one.</div>)
       setTimeout(() => setError(''), 3000);
     };
-
 
     return (
         <header className="search-container">
