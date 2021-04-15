@@ -10,7 +10,11 @@ function App() {
     base: "https://api.openweathermap.org/data/2.5/",
   };
 
-  const localInstances = localStorage.getItem("instances");
+  if(localStorage.getItem("instances") === null){
+    const localInstances = [];
+  }else{
+    const localInstances = localStorage.getItem("instances");
+  }
 
   const [instances, setInstance] = useState(JSON.parse(localInstances));
 
