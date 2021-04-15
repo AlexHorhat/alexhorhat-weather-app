@@ -12,7 +12,7 @@ function App() {
 
   const localInstances = localStorage.getItem("instances");
 
-  const [instances, setInstance] = useState(JSON.parse(localInstances), []);
+  const [instances, setInstance] = useState(JSON.parse(localInstances));
 
   const getInstance = (response) => {
     setInstance((previousInstances) => {
@@ -21,6 +21,9 @@ function App() {
   };
 
   useEffect(() => {
+    if (instances === null){
+      localStorage.setItem("instances", JSON.stringify([]))
+    }
     localStorage.setItem("instances", JSON.stringify(instances));
   }, [instances]);
 
