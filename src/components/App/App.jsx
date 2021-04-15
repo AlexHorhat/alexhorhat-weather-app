@@ -24,7 +24,11 @@ function App() {
     });
   };
 
-  useEffect(() => {localStorage.setItem("instances", JSON.stringify(instances));
+  useEffect(() => {
+    if (instances === null){
+      localStorage.setItem("instances", JSON.stringify([]))
+    }
+    localStorage.setItem("instances", JSON.stringify(instances));
   }, [instances]);
 
   const deleteInstance = (id) => {
