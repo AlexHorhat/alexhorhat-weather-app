@@ -12,10 +12,6 @@ function App() {
 
   const localInstances = localStorage.getItem("instances");
 
-  if(localInstances === null){
-    localInstances = [];
-  }
-
   const [instances, setInstance] = useState(JSON.parse(localInstances));
 
   const getInstance = (response) => {
@@ -24,11 +20,7 @@ function App() {
     });
   };
 
-  useEffect(() => {
-    if (instances === null){
-      localStorage.setItem("instances", JSON.stringify([]))
-    }
-    localStorage.setItem("instances", JSON.stringify(instances));
+  useEffect(() => {localStorage.setItem("instances", JSON.stringify(instances));
   }, [instances]);
 
   const deleteInstance = (id) => {
